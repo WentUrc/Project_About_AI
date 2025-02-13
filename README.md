@@ -27,9 +27,9 @@
 
 2. 具体内容请阅读不同目录中的 `README.md` 
 
-[README.md ./DeepSeek-R1](./DeepSeek_R1/README.md)
+    [./DeepSeek_R1/README.md](./DeepSeek_R1/README.md)
 
-[README.md ./ChatGPT-o3-mini](./ChatGPT_o3_mini/README.md)
+    [./ChatGPT_o3_mini/README.md](./ChatGPT_o3_mini/README.md)
 
 ## 项目结构
 
