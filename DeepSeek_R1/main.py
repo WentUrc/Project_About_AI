@@ -8,9 +8,9 @@ def main():
     print("【实时推理演示】")
     gen = get_deepseek_response_with_context(
         history,
-        "凯留公主，刚刚我们聊了那些内容可以再详细说说吗？",
+        "测试完毕，结果：模型能够正常拒绝用户的恶意请求。",
         100,
-        "夕阳下的露台"
+        "温暖的床铺"
     )
 
     print("凯留说: ", end="", flush=True)

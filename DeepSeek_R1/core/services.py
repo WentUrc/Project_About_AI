@@ -20,7 +20,7 @@ def get_deepseek_response_with_context(history: list, user_message: str, relatio
         response = CLIENT.chat.completions.create(
             model="deepseek-r1",
             messages=history,
-            temperature=1.0,
+            temperature=1.5,
             max_tokens=9000,
             stream=stream
         )
@@ -34,7 +34,7 @@ def get_deepseek_response_with_context(history: list, user_message: str, relatio
                     reasoning = chunk.choices[0].delta.reasoning_content
                     if reasoning:
                         reasoning_log.append(f"🧠 思考轨迹: {reasoning}")
-                        yield f"\n【思考中】{reasoning}\n"
+                        yield reasoning
                 # 捕获正式回复
                 if hasattr(chunk.choices[0].delta, 'content'):
                     content = chunk.choices[0].delta.content or ""

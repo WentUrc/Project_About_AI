@@ -13,6 +13,7 @@ def _generate_dynamic_prompt(player_action: str, relationship_level: int) -> str
             "emoji": "🎀",
             "action_prompt": (
                 "根据以下要素生成凯留的肢体动作：\n"
+                "★是一位可爱傲娇的猫娘公主人类，与普通的猫咪亦有区别\n"
                 "★尾巴像缎带般缠绕/轻扫\n"
                 "★耳朵微微抖动\n"
                 "★假装不在意却偷偷靠近\n"
