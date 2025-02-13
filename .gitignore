@@ -1,0 +1,4 @@
+.env
+conversation_history.json
+kailiu_chat.log
+__pycache__/
