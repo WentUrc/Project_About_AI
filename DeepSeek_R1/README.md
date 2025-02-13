@@ -46,12 +46,32 @@
 
 ### 启动示例
 
-1. 在终端运行主程序：
+1. 编辑当前目录中的 `main.py` 里的：
+   ```Python
+   def main():
+    history = init_history()
+    print("【实时推理演示】")
+    gen = get_deepseek_response_with_context(
+        history,
+        "凯留公主，刚刚我们聊了那些内容可以再详细说说吗？", # 这里写入你想对凯留公主说的话，等同于对话框
+        100,                                            # 这里是凯留公主对你的好感度，可以修改
+        "夕阳下的露台"                                   # 这里是聊天场景，可以修改
+    )
+
+    print("凯留说: ", end="", flush=True)
+    if isinstance(gen, str):
+        print(gen)
+    else:
+        for chunk in gen:
+            print(chunk, end="", flush=True)
+   ```
+
+2. 在终端运行主程序：
    ```bash
    python3 main.py
    ```
 
-2. 然后，你将看到凯留公主开始和你互动啦！🎀
+3. 然后，你将看到凯留公主开始和你互动啦！🎀
 
 ## 项目结构
 

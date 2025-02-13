@@ -45,12 +45,33 @@
 
 ### 启动聊天
 
-1. 运行该目录中的 `main.py` 启动聊天：
+1. 编辑当前目录中的 `main.py`里的：
+   ```Python
+   def main():
+    history = init_history()
+    print("【实时推理演示】")
+    gen = get_deepseek_response_with_context(
+        history,
+        "凯留公主，刚刚我们聊了那些内容可以再详细说说吗？",   # 这里写入你想对凯留公主说的话，等同于对话框
+        100,                                              # 这里是凯留公主对你的好感度，可以修改
+        "温暖的床铺"                                       # 这里是聊天场景，可以修改
+    )
+
+    print("凯留公主说: ", end="", flush=True)
+    # 流式输出
+    if isinstance(gen, str):
+        print(gen)
+    else:
+        for chunk in gen:
+            print(chunk, end="", flush=True)
+   ```
+
+2. 运行该目录中的 `main.py` 启动聊天：
    ```bash
    python3 main.py
    ```
 
-2. 程序启动后，凯留公主将根据你的输入进行对话。🎀
+3. 程序启动后，凯留公主将根据你的输入进行对话。🎀
 
 ## 项目结构
 

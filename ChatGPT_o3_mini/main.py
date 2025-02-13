@@ -7,7 +7,7 @@ def main():
     print("【实时推理演示】")
     gen = get_deepseek_response_with_context(
         history,
-        "",
+        "凯留公主，刚刚我们聊了那些内容可以再详细说说吗？",
         100,
         "温暖的床铺"
     )
