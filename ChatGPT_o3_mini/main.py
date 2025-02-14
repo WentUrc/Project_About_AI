@@ -12,7 +12,7 @@ def main():
         "温暖的床铺"
     )
 
-    print("凯留公主说: ", end="", flush=True)
+    print(end="", flush=True)
     # 流式输出
     if isinstance(gen, str):
         print(gen)

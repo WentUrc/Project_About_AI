@@ -87,19 +87,25 @@ def get_deepseek_response_with_context(history: list, user_message: str, relatio
 
         if stream:
             full_content = ""
-            reasoning_log = []
+            reasoning_printed = False
+            content_printed = False
             for chunk in response:
-                # 捕获思维链（可选输出）
+                # 捕获思维链内容（如果有）
                 if hasattr(chunk.choices[0].delta, 'reasoning_content'):
                     reasoning = chunk.choices[0].delta.reasoning_content
                     if reasoning:
-                        reasoning_log.append(f"🧠 思考轨迹: {reasoning}")
+                        if not reasoning_printed:
+                            yield "\n【思考中】\n"
+                            reasoning_printed = True
                         yield reasoning
-                # 捕获正式回复
+                # 捕获正式回复内容
                 if hasattr(chunk.choices[0].delta, 'content'):
                     content = chunk.choices[0].delta.content or ""
                     full_content += content
                     if content:
+                        if not content_printed:
+                            yield "\n【凯留说】\n"
+                            content_printed = True
                         yield content
 
             # 只记录正式回复
